@@ -1,3 +1,5 @@
+require './lib/node'
+
 class LinkedList
   attr_reader :head
 
@@ -5,8 +7,20 @@ class LinkedList
     @head = nil
   end
 
+  # def append(data)
+  #   @head = Node.new(data)
+  # end
+
   def append(data)
-    @head = Node.new(data)
+    if @head == nil
+      @head = Node.new(data)
+    else
+      current = @head
+      until current.next_node == nil
+        current = current.next_node
+      end
+      current.next_node = Node.new(data)
+    end
   end
 
   def count
@@ -20,6 +34,13 @@ class LinkedList
   end
 
   def to_string
-    @head.data.to_s
+    current = @head
+    word_array = []
+    until current == nil
+      word_array << current.data
+      current = current.next_node
+    end
+    word_array.join(" ")
   end
 end
+

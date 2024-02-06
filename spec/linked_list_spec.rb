@@ -28,13 +28,18 @@ RSpec.describe LinkedList do
     list.append('doop')
 
     expect(list.count).to eq(1)
+
+    list.append("deep")
+
+    expect(list.count).to eq(2)
   end
 
-  it 'can convert the data to a string' do
+  it 'will join all of the node data into one string with spaces between each data' do
     list = LinkedList.new
 
     list.append('doop')
+    list.append("deep")
 
-    expect(list.to_string).to eq('doop')
+    expect(list.to_string).to eq('doop deep')
   end
 end
