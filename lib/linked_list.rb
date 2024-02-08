@@ -1,7 +1,7 @@
 require './lib/node'
 
 class LinkedList
-  attr_reader :head
+  attr_accessor :head
 
   def initialize
     @head = nil
